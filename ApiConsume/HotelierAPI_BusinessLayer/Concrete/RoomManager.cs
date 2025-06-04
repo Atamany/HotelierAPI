@@ -9,32 +9,19 @@ using HotelierAPI_DataAccessLayer.Abstract;
 
 namespace HotelierAPI_BusinessLayer.Concrete
 {
-    public class RoomManager : IRoomService<Room>
+    public class RoomManager : IRoomService
     {
         private readonly IRoomDal _roomDal;
-        public void TDelete(Room t)
+
+        public RoomManager(IRoomDal roomDal)
         {
-            _roomDal.Delete(t);
+            _roomDal = roomDal;
         }
 
-        public Room TGetById(int id)
-        {
-            return _roomDal.GetById(id);
-        }
-
-        public List<Room> TGetList()
-        {
-            return _roomDal.GetList();
-        }
-
-        public void TInsert(Room t)
-        {
-            _roomDal.Insert(t);
-        }
-
-        public void TUpdate(Room t)
-        {
-            _roomDal.Update(t);
-        }
+        public void TDelete(Room t) => _roomDal.Delete(t);
+        public Room TGetById(int id) => _roomDal.GetById(id);
+        public List<Room> TGetList() => _roomDal.GetList();
+        public void TInsert(Room t) => _roomDal.Insert(t);
+        public void TUpdate(Room t) => _roomDal.Update(t);
     }
 }

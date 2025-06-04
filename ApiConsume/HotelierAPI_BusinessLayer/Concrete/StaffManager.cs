@@ -9,32 +9,20 @@ using System.Threading.Tasks;
 
 namespace HotelierAPI_BusinessLayer.Concrete
 {
-    public class StaffManager : IStaffService<Staff>
+    public class StaffManager : IStaffService
     {
         private readonly IStaffDal _staffDal;
-        public void TDelete(Staff t)
+
+        public StaffManager(IStaffDal staffDal)
         {
-            _staffDal.Delete(t);
+            _staffDal = staffDal;
         }
 
-        public Staff TGetById(int id)
-        {
-            return _staffDal.GetById(id);
-        }
-
-        public List<Staff> TGetList()
-        {
-            return _staffDal.GetList();
-        }
-
-        public void TInsert(Staff t)
-        {
-            _staffDal.Insert(t);
-        }
-
-        public void TUpdate(Staff t)
-        {
-            _staffDal.Update(t);
-        }
+        public void TDelete(Staff t) => _staffDal.Delete(t);
+        public Staff TGetById(int id) => _staffDal.GetById(id);
+        public List<Staff> TGetList() => _staffDal.GetList();
+        public void TInsert(Staff t) => _staffDal.Insert(t);
+        public void TUpdate(Staff t) => _staffDal.Update(t);
     }
+
 }

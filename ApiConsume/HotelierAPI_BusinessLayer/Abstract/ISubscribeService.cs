@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelierAPI_EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace HotelierAPI_BusinessLayer.Abstract
 {
-    public interface ISubscribeService<T> where T : class
+    public interface ISubscribeService
     {
-        void TInsert(T t);
-        void TDelete(T t);
-        void TUpdate(T t);
-        List<T> TGetList();
-        T TGetById(int id);
+        void TInsert(Subscribe t);
+        void TDelete(Subscribe t);
+        void TUpdate(Subscribe t);
+        List<Subscribe> TGetList();
+        Subscribe TGetById(int id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelierAPI_EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace HotelierAPI_BusinessLayer.Abstract
 {
-    public interface IStaffService<T> where T : class
+    public interface IStaffService
     {
-        void TInsert(T t);
-        void TDelete(T t);
-        void TUpdate(T t);
-        List<T> TGetList();
-        T TGetById(int id);
+        void TInsert(Staff t);
+        void TDelete(Staff t);
+        void TUpdate(Staff t);
+        List<Staff> TGetList();
+        Staff TGetById(int id);
     }
 }
