@@ -1,0 +1,24 @@
+﻿@using HotelierAPI_WebUI.Models.Testimonial
+@model UpdateTestimonialViewModel
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="TestimonialID" class="form-control" />
+    <label>Referans Adı</label>
+    <input type="text" asp-for="Name" class="form-control" /><br />
+
+    <label>Referans Ünvanı</label>
+    <input type="text" asp-for="Title" class="form-control" /><br />
+
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" /><br />
+
+    <label>Resim (Url)</label>
+    <input type="text" asp-for="Image" class="form-control" /><br />
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+
