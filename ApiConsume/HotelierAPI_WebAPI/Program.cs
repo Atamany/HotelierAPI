@@ -26,6 +26,11 @@ builder.Services.AddScoped<ISubscribeDal, EfSubscribeDal>();
 builder.Services.AddScoped<IServiceService, ServiceManager>();
 builder.Services.AddScoped<IServicesDal, EfServiceDal>();
 
+builder.Services.AddCors(opt => { opt.AddPolicy("OtelApiCors", opts =>
+{
+   opts.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+}); });
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -41,7 +46,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("OtelApiCors");
 app.UseAuthorization();
 
 app.MapControllers();
