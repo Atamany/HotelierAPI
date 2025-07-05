@@ -4,6 +4,8 @@ using HotelierAPI_WebUI.DTOs.AboutDTO;
 using HotelierAPI_WebUI.DTOs.LoginDTO;
 using HotelierAPI_WebUI.DTOs.RegisterDTO;
 using HotelierAPI_WebUI.DTOs.ServiceDTO;
+using HotelierAPI_WebUI.DTOs.StaffDTO;
+using HotelierAPI_WebUI.DTOs.SubscribeDTO;
 
 namespace HotelierAPI_WebUI.Mapping
 {
@@ -18,6 +20,8 @@ namespace HotelierAPI_WebUI.Mapping
             CreateMap<LoginUserDTO,AppUser>().ReverseMap();
             CreateMap<ResultAboutDTO,About>().ReverseMap();
             CreateMap<UpdateAboutDTO,About>().ReverseMap();
+            CreateMap<ResultStaffDTO,Staff>().ReverseMap();
+            CreateMap<CreateSubscribeDTO,Subscribe>().ReverseMap();
 
         }
     }

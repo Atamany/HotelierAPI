@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelierAPI_EntityLayer.Concrete
+﻿namespace HotelierAPI_WebUI.DTOs.StaffDTO
 {
-    public class Staff
+    public class ResultStaffDTO
     {
         public int StaffID { get; set; }
         public string Name { get; set; }
