@@ -1,4 +1,8 @@
+using HotelierAPI_BusinessLayer.Abstract;
+using HotelierAPI_BusinessLayer.Concrete;
+using HotelierAPI_DataAccessLayer.Abstract;
 using HotelierAPI_DataAccessLayer.Concrete;
+using HotelierAPI_DataAccessLayer.EntityFramework;
 using HotelierAPI_EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
