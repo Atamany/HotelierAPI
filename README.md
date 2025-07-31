@@ -2,7 +2,7 @@
 
 Bu proje, ASP.NET Core 8.0 ve N-Katmanlı Mimari kullanılarak geliştirilmiş kapsamlı bir otel tanıtım ve yönetim sistemidir. Sektörel ihtiyaçlara uygun olarak hem yönetici paneli hem de kullanıcı arayüzü ile tasarlanmıştır.
 
-<img src="https://i.hizliresim.com/crbhiuk.png" alt="Ana Sayfa" style="width:100%; max-width:800px; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+<img src="https://github.com/user-attachments/assets/d2fae62b-8cdc-425c-95be-a3a2761b1c23" alt="Ana Sayfa" style="width:100%; max-width:800px; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 
 ## 📋 Proje Özellikleri
 
