@@ -9,5 +9,7 @@ namespace HotelierAPI_BusinessLayer.Abstract
 {
     public interface IBookingService:IGenericService<Booking>
     {
+        void TBookingStatusChangeApproved(Booking booking);
+        void TBookingStatusChangeRejected(Booking booking);
     }
 }

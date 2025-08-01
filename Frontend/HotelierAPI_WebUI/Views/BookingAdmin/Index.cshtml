@@ -1,0 +1,61 @@
+﻿@using HotelierAPI_WebUI.DTOs.BookingDTO
+@model List<ResultBookingDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+<div class="card-body">
+    <div class="card-title">
+        <h4>Rezervasyonlar</h4>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Müşteri</th>
+                    <th>Giriş</th>
+                    <th>Çıkış</th>
+                    <th>Durum</th>
+                    <th>Onayla!</th>
+                    <th>İptal Et!</th>
+                    <th>Detaylar</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <th>@count</th>
+                        <td>@item.Name</td>
+                        <td>@(((DateTime)item.CheckIn).ToShortDateString())</td>
+                        <td>@(((DateTime)item.CheckOut).ToShortDateString())</td>
+                        <td>
+                            @if(@item.Status=="Onay Bekliyor!"){<span class="badge badge-warning px-2">@item.Status</span>}
+                            @if(@item.Status=="Onaylandı!"){<span class="badge badge-primary px-2">@item.Status</span>}
+                            @if(@item.Status=="İptal Edildi!"){<span class="badge badge-danger px-2">@item.Status</span>}</td>
+                        <td>
+                            <form asp-action="BookingApproved" asp-controller="BookingAdmin" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="BookingID" value="@item.BookingID" />
+                                <button type="submit" class="btn btn-primary">Onayla!</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form asp-action="BookingRejected" asp-controller="BookingAdmin" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="BookingID" value="@item.BookingID" />
+                                <button type="submit" class="btn btn-danger">İptal Et!</button>
+                            </form>
+                        </td>
+                        <td><a href="#" class="btn btn-outline-primary">Detaylar</a></td>
+                        <td><a href="#" class="btn btn-outline-warning">Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

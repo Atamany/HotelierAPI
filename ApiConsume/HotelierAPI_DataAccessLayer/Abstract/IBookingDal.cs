@@ -9,5 +9,7 @@ namespace HotelierAPI_DataAccessLayer.Abstract
 {
     public interface IBookingDal:IGenericDal<Booking>
     {
+        void BookingStatusChangeApproved(Booking booking);
+        void BookingStatusChangeRejected(Booking booking);
     }
 }

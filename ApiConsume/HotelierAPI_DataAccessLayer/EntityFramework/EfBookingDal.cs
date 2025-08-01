@@ -15,5 +15,21 @@ namespace HotelierAPI_DataAccessLayer.EntityFramework
         public EfBookingDal(Context context) : base(context)
         {
         }
+
+        public void BookingStatusChangeApproved(Booking booking)
+        {
+            using var context = new Context();
+            context.Bookings.Attach(booking);
+            booking.Status = "Onaylandı!";
+            context.SaveChanges();
+        }
+
+        public void BookingStatusChangeRejected(Booking booking)
+        {
+            using var context = new Context();
+            context.Bookings.Attach(booking);
+            booking.Status = "İptal Edildi!";
+            context.SaveChanges();
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace HotelierAPI_WebAPI.Controllers
             _bookingService.TInsert(booking);
             return Ok();
         }
-        [HttpPut]
+        [HttpPut("UpdateBooking")]
         public IActionResult UpdateBooking(Booking booking)
         {
             _bookingService.TUpdate(booking);
@@ -47,6 +47,20 @@ namespace HotelierAPI_WebAPI.Controllers
         {
             var values = _bookingService.TGetById(id);
             return Ok(values);
+        }
+        [HttpPut("BookingApproved")]
+        public IActionResult BookingApproved(int id)
+        {
+            Booking booking = _bookingService.TGetById(id);
+            _bookingService.TBookingStatusChangeApproved(booking);
+            return Ok();
+        }
+        [HttpPut("BookingRejected")]
+        public IActionResult BookingRejected(int id)
+        {
+            Booking booking = _bookingService.TGetById(id);
+            _bookingService.TBookingStatusChangeRejected(booking);
+            return Ok();
         }
     }
 }

@@ -24,6 +24,8 @@ namespace HotelierAPI_WebUI.Mapping
             CreateMap<ResultStaffDTO,Staff>().ReverseMap();
             CreateMap<CreateSubscribeDTO,Subscribe>().ReverseMap();
             CreateMap<CreateBookingDTO, Booking>().ReverseMap();
+            CreateMap<BookingApprovedDTO, Booking>().ReverseMap();
+            CreateMap<BookingRejectedDTO, Booking>().ReverseMap();
 
         }
     }

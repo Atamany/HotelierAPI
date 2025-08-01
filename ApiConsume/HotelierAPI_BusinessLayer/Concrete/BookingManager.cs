@@ -16,6 +16,17 @@ namespace HotelierAPI_BusinessLayer.Concrete
         {
             _bookingDal = bookingDal;
         }
+
+        public void TBookingStatusChangeApproved(Booking booking)
+        {
+            _bookingDal.BookingStatusChangeApproved(booking);
+        }
+
+        public void TBookingStatusChangeRejected(Booking booking)
+        {
+            _bookingDal.BookingStatusChangeRejected(booking);
+        }
+
         public void TDelete(Booking t)
         {
             _bookingDal.Delete(t);
