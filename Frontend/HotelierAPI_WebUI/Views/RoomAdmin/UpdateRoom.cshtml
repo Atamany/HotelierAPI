@@ -1,0 +1,51 @@
+﻿@using HotelierAPI_WebUI.DTOs.RoomDTO
+@model UpdateRoomDTO
+@{
+    ViewData["Title"] = "UpdateRoom";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    var isWifiAvailable = Model.Wifi == "True";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="RoomId" class="form-control"/>
+    <label>Oda Numarası</label>
+    <input type="text" asp-for="RoomNumber" class="form-control" /><br />
+
+    <label>Oda Türü</label>
+    <input type="text" asp-for="Title" class="form-control" /><br />
+
+    <label>Fiyat</label>
+    <input type="number" asp-for="Price" class="form-control" /><br />
+
+    <label>Yatak Sayısı</label>
+    <input type="text" asp-for="BedCount" class="form-control" /><br />
+
+    <label>Banyo Sayısı</label>
+    <input type="text" asp-for="BathCount" class="form-control" /><br />
+
+    <label>Oda Resmi (URL)</label>
+    <input type="text" asp-for="RoomCoverImage" class="form-control" /><br />
+
+    <label>Açıklama</label>
+    <textarea class="form-control" placeholder="Açıklama" asp-for="Description" style="height: 150px"></textarea>
+    <br />
+    <h4>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="wifiCheck" @(isWifiAvailable ? "checked" : "") />
+            <label class="form-check-label" for="wifiCheck">
+                <i class="icon-wifi menu-icon"></i> Wi-Fi hizmeti var mı?
+            </label>
+            <input type="hidden" name="Wifi" id="wifiHidden" value="@(isWifiAvailable ? "True" : "False")" />
+        </div>
+    </h4><br />
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+
+<script>
+    document.getElementById('wifiCheck').addEventListener('change', function () {
+        document.getElementById('wifiHidden').value = this.checked ? 'True' : 'False';
+    });
+</script>
+
+

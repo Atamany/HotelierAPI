@@ -234,6 +234,9 @@ Sistem, RESTful prensiplerine uygun olarak tasarlanmış aşağıdaki endpoint'l
 - `PUT /api/Subscribe` - Aboneliği güncelle
 - `DELETE /api/Subscribe/{id}` - Aboneliği sil
 
+### 📞 İletişim
+- `POST /api/Contact` - Yeni iletişim mesajı ekle
+
 Tüm API endpoint'lerine erişim için Swagger arayüzü `https://localhost:7000/swagger` adresinden erişilebilir.
 
 ## 🗄️ Veritabanı Şeması
@@ -281,6 +284,9 @@ Sistem aşağıdaki tablolardan oluşan ilişkisel veritabanı yapısını kulla
 - `Name` (string) - Ad
 - `Surname` (string) - Soyad
 - `City` (string) - Şehir
+- `TCKN` (string) - TC Kimlik Numarası
+- `Telefon` (string) - Telefon (nullable)
+- `Mail` (string) - E-posta (nullable)
 
 ### 🛏️ Room (Oda)
 - `RoomId` (int, PK) - Birincil anahtar
@@ -318,6 +324,14 @@ Sistem aşağıdaki tablolardan oluşan ilişkisel veritabanı yapısını kulla
 - `Title` (string) - Unvan
 - `Description` (string) - Açıklama
 - `Image` (string) - Görsel URL
+
+### 📧 Contact (İletişim)
+- `ContactID` (int, PK) - Birincil anahtar
+- `Name` (string) - Ad
+- `Mail` (string) - E-posta
+- `Subject` (string) - Konu
+- `Message` (string) - Mesaj
+- `Date` (DateTime) - Tarih
 
 ### 🔗 İlişkiler
 

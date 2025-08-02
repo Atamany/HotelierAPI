@@ -1,0 +1,40 @@
+﻿@using HotelierAPI_WebUI.DTOs.GuestDTO
+@model List<ResultGuestDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    var count = 0;
+}
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>TCKN</th>
+        <th>Telefon</th>
+        <th>E-Posta</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        ++count;
+        <tr>
+            <td>@count</td>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.City</td>
+            <td>@item.TCKN</td>
+            <td>@item.Telefon</td>
+            <td>@item.Mail</td>
+            <td><a href="/GuestAdmin/UpdateGuest/@item.GuestID" class="btn mb-1 btn-rounded btn-outline-warning">Güncelle</a></td>
+            <td><a href="/GuestAdmin/DeleteGuest/@item.GuestID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<a href="/GuestAdmin/AddGuest/" class="btn mb-1 btn-rounded btn-outline-info">Müşteri Ekle</a>
+
+
+
+
