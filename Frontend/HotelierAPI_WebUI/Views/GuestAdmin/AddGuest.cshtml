@@ -7,22 +7,23 @@
 
 <form method="post">
     <label>Ad</label>
-    <input type="text" asp-for="Name" class="form-control" /><br />
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span><br />
 
     <label>Soyad</label>
-    <input type="text" asp-for="Surname" class="form-control" /><br />
+    <input type="text" asp-for="Surname" class="form-control" /><span asp-validation-for="Surname" class="text-danger"></span><br />
 
     <label>Şehir</label>
-    <input type="text" asp-for="City" class="form-control" /><br />
+    <input type="text" asp-for="City" class="form-control" /><span asp-validation-for="City" class="text-danger"></span><br />
 
     <label>TCKN</label>
-    <input type="text" asp-for="TCKN" class="form-control" /><br />
+    <input type="text" asp-for="TCKN" class="form-control" /><span asp-validation-for="TCKN" class="text-danger"></span><br />
 
     <label>Telefon</label>
-    <input type="text" asp-for="Telefon" class="form-control" /><br />
+    <input type="text" asp-for="Telefon" class="form-control" /><span asp-validation-for="Telefon" class="text-danger"></span><br />
 
     <label>E-Posta</label>
-    <input type="email" asp-for="Mail" class="form-control" /><br />
+    <input type="email" asp-for="Mail" class="form-control" /><span asp-validation-for="Mail" class="text-danger"></span><br />
 
     <button class="btn btn-primary">Ekle</button>
 </form>

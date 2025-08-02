@@ -17,6 +17,7 @@ Bu kapsamlı otel tanıtım ve yönetim sistemi, ASP.NET Core 8.0 teknolojisi il
 - [Mimari Yapı](#-mimari-yapı)
 - [Proje Yapısı](#-proje-yapısı)
 - [Kurulum](#-kurulum)
+- [Veri Doğrulama ve Validasyon](#-veri-doğrulama-ve-validasyon)
 - [API Endpoint'leri](#-api-endpointleri)
 - [Veritabanı Şeması](#-veritabanı-şeması)
 - [Lisans](#-lisans)
@@ -54,6 +55,7 @@ Bu kapsamlı otel tanıtım ve yönetim sistemi, ASP.NET Core 8.0 teknolojisi il
 - **ASP.NET Core 8.0 Web API:** RESTful API servisleri
 - **Entity Framework Core 8.0:** ORM (Object-Relational Mapping) aracı
 - **AutoMapper:** Nesneler arası eşleme işlemleri
+- **FluentValidation:** Veri doğrulama ve validasyon işlemleri
 - **Swagger/OpenAPI:** API dokümantasyonu ve test aracı
 - **ASP.NET Core Identity:** Kullanıcı yönetimi ve kimlik doğrulama
 
@@ -90,11 +92,13 @@ Proje N-Katmanlı Mimari (N-Layered Architecture) yaklaşımı ile geliştirilmi
 - RESTful API servislerinin bulunduğu katmandır
 - Swagger ile dokümantasyon sağlanmıştır
 - CRUD işlemleri için endpoint'ler tanımlanmıştır
+- FluentValidation ile veri doğrulama işlemleri uygulanmıştır
 
 #### 🖥️ WebUI Layer (HotelierAPI_WebUI)
 - Kullanıcı arayüzünün (MVC) bulunduğu katmandır
 - Admin paneli ve kullanıcı arayüzü olmak üzere iki temel bölüm içerir
 - API consume işlemleri için IHttpClientFactory kullanılmıştır
+- FluentValidation ile veri doğrulama işlemleri uygulanmıştır
 
 ## 📁 Proje Yapısı
 
@@ -180,6 +184,61 @@ dotnet run
 
 API varsayılan olarak `https://localhost:7000` adresinde,
 Web arayüzü ise `https://localhost:7001` adresinde çalışacaktır.
+
+## ✅ Veri Doğrulama ve Validasyon
+
+Proje, kullanıcı girdilerinin güvenli ve doğru şekilde işlenmesini sağlamak için **FluentValidation** kütüphanesini kullanmaktadır. Bu yaklaşım, veri doğrulama kurallarını modellerden ayırarak daha temiz ve sürdürülebilir bir kod yapısı sağlar.
+
+### 📋 Validasyon Kuralları
+
+#### Guest (Misafir) Varlığı için Validasyon
+
+Misafir varlığı için iki farklı DTO (Data Transfer Object) için ayrı validasyon kuralları tanımlanmıştır:
+
+1. **CreateGuestDTO** - Yeni misafir oluşturma işlemleri için
+2. **UpdateGuestDTO** - Mevcut misafir bilgilerini güncelleme işlemleri için
+
+##### Ortak Validasyon Kuralları:
+- **Ad (Name):**
+  - Boş bırakılamaz
+  - En az 2 karakter uzunluğunda olmalıdır
+  - En fazla 50 karakter uzunluğunda olabilir
+
+- **Soyad (Surname):**
+  - Boş bırakılamaz
+  - En az 2 karakter uzunluğunda olmalıdır
+  - En fazla 50 karakter uzunluğunda olabilir
+
+- **Şehir (City):**
+  - Boş bırakılamaz
+  - En az 3 karakter uzunluğunda olmalıdır
+  - En fazla 50 karakter uzunluğunda olabilir
+
+- **TC Kimlik Numarası (TCKN):**
+  - Boş bırakılamaz
+  - Tam olarak 11 karakter uzunluğunda olmalıdır
+  - Sadece rakamlardan oluşmalıdır
+
+- **Telefon (Telefon):**
+  - 13 karakter uzunluğunda olmalıdır (Uluslararası format: +901234567890)
+
+- **E-posta (Mail):**
+  - Geçerli bir e-posta formatında olmalıdır
+
+### 🏗️ Uygulama Yapısı
+
+Validasyon kuralları, `Frontend/HotelierAPI_WebUI/ValidationRules` klasörü altında tanımlanmıştır:
+
+```
+ValidationRules/
+├── GuestValidationRules/
+│   ├── CreateGuestValidator.cs
+│   └── UpdateGuestValidator.cs
+└── RoomValidationRules/
+    └── (Boş - Gelecekte eklenebilir)
+```
+
+Bu yapı, her varlık için ayrı validasyon klasörleri oluşturularak genişletilebilir bir mimari sunar.
 
 ## 🌐 API Endpoint'leri
 
