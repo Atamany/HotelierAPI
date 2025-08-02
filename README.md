@@ -241,10 +241,13 @@ Tüm API endpoint'lerine erişim için Swagger arayüzü `https://localhost:7000
 Sistem aşağıdaki tablolardan oluşan ilişkisel veritabanı yapısını kullanmaktadır:
 
 ### 🏢 About (Hakkımızda)
-- `AboutID` (int, PK) - Birincil anahtar
-- `Title` (string) - Başlık
-- `Description` (string) - Açıklama
-- `ImageUrl` (string) - Görsel URL
+- `AboutId` (int, PK) - Birincil anahtar
+- `Title1` (string) - Başlık 1
+- `Title2` (string) - Başlık 2
+- `Content` (string) - İçerik
+- `RoomCount` (int) - Oda Sayısı
+- `StaffCount` (int) - Personel Sayısı
+- `CustomerCount` (int) - Müşteri Sayısı
 
 ### 👥 AppUser (Uygulama Kullanıcısı)
 - `Id` (int, PK) - Birincil anahtar
@@ -254,6 +257,7 @@ Sistem aşağıdaki tablolardan oluşan ilişkisel veritabanı yapısını kulla
 - `Email` (string) - E-posta
 - `PasswordHash` (byte[]) - Şifre hash değeri
 - `PasswordSalt` (byte[]) - Şifre salt değeri
+- `City` (string) - Şehir (nullable)
 
 ### 🔐 AppRole (Uygulama Rolü)
 - `Id` (int, PK) - Birincil anahtar
@@ -263,8 +267,8 @@ Sistem aşağıdaki tablolardan oluşan ilişkisel veritabanı yapısını kulla
 - `BookingID` (int, PK) - Birincil anahtar
 - `Name` (string) - İsim
 - `Mail` (string) - E-posta
-- `Checkin` (DateTime) - Giriş tarihi
-- `Checkout` (DateTime) - Çıkış tarihi
+- `CheckIn` (DateTime) - Giriş tarihi
+- `CheckOut` (DateTime) - Çıkış tarihi
 - `AdultCount` (string) - Yetişkin sayısı
 - `ChildCount` (string) - Çocuk sayısı
 - `RoomCount` (string) - Oda sayısı

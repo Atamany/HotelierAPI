@@ -2,6 +2,7 @@
 using HotelierAPI_EntityLayer.Concrete;
 using HotelierAPI_WebUI.DTOs.AboutDTO;
 using HotelierAPI_WebUI.DTOs.BookingDTO;
+using HotelierAPI_WebUI.DTOs.ContactDTO;
 using HotelierAPI_WebUI.DTOs.LoginDTO;
 using HotelierAPI_WebUI.DTOs.RegisterDTO;
 using HotelierAPI_WebUI.DTOs.ServiceDTO;
@@ -26,6 +27,7 @@ namespace HotelierAPI_WebUI.Mapping
             CreateMap<CreateBookingDTO, Booking>().ReverseMap();
             CreateMap<BookingApprovedDTO, Booking>().ReverseMap();
             CreateMap<BookingRejectedDTO, Booking>().ReverseMap();
+            CreateMap<CreateContactDTO, Contact>().ReverseMap();
 
         }
     }
