@@ -20,5 +20,17 @@ namespace HotelierAPI_WebAPI.Controllers
             _contactService.TInsert(contact);
             return Ok();
         }
+        [HttpGet]
+        public IActionResult ContactList()
+        {
+            var values = _contactService.TGetList().OrderByDescending(x => x.Date);
+            return Ok(values);
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetSendMessage(int id)
+        {
+            var values = _contactService.TGetById(id);
+            return Ok(values);
+        }
     }
 }
