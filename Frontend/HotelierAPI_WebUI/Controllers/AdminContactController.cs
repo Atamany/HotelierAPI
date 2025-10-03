@@ -20,12 +20,26 @@ namespace HotelierAPI_WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7135/api/ContactAPI");
+
+            var client2 = _httpClientFactory.CreateClient();
+            var responseMessage2 = await client2.GetAsync("https://localhost:7135/api/ContactAPI/GetContactCount");
+
+            var client3 = _httpClientFactory.CreateClient();
+            var responseMessage3 = await client3.GetAsync("https://localhost:7135/api/SendMessage/GetSendMessageCount");
+
             if (responseMessage.IsSuccessStatusCode)
             {
+                var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+                ViewBag.ContactCount = jsonData2.FirstOrDefault();
+
+                var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
+                ViewBag.SendMessageCount = jsonData3.FirstOrDefault();
+
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<InboxContactDTO>>(jsonData);
                 return View(values);
             }
+
             return View();
         }
 
@@ -33,8 +47,21 @@ namespace HotelierAPI_WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7135/api/SendMessage");
+
+            var client2 = _httpClientFactory.CreateClient();
+            var responseMessage2 = await client2.GetAsync("https://localhost:7135/api/ContactAPI/GetContactCount");
+
+            var client3 = _httpClientFactory.CreateClient();
+            var responseMessage3 = await client3.GetAsync("https://localhost:7135/api/SendMessage/GetSendMessageCount");
+
             if (responseMessage.IsSuccessStatusCode)
             {
+                var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+                ViewBag.ContactCount = jsonData2.FirstOrDefault();
+
+                var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
+                ViewBag.SendMessageCount = jsonData3.FirstOrDefault();
+
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultSendboxDTO>>(jsonData);
                 return View(values);
@@ -52,7 +79,7 @@ namespace HotelierAPI_WebUI.Controllers
                 return View(value);
             }
             return View();
-        }        
+        }
         public async Task<IActionResult> SendedMessageDetails(int id)
         {
             var client = _httpClientFactory.CreateClient();
@@ -64,7 +91,7 @@ namespace HotelierAPI_WebUI.Controllers
                 return View(value);
             }
             return View();
-        }        
+        }
 
         [HttpGet]
         public IActionResult AddSendMessage()

@@ -9,5 +9,6 @@ namespace HotelierAPI_BusinessLayer.Abstract
 {
     public interface ISendMessageService: IGenericService<SendMessage>
     {
+        public int TGetSendMessageCount();
     }
 }

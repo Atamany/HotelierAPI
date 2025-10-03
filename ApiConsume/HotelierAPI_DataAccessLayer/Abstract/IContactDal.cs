@@ -9,5 +9,6 @@ namespace HotelierAPI_DataAccessLayer.Abstract
 {
     public interface IContactDal:IGenericDal<Contact>
     {
+        public int GetContactCount();
     }
 }
