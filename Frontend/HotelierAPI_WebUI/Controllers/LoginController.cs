@@ -1,10 +1,12 @@
 ﻿using HotelierAPI_EntityLayer.Concrete;
 using HotelierAPI_WebUI.DTOs.LoginDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelierAPI_WebUI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
