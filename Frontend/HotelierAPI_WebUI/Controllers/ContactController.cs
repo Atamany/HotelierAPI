@@ -1,6 +1,9 @@
 ﻿using HotelierAPI_WebUI.DTOs.ContactDTO;
+using HotelierAPI_WebUI.DTOs.MessageCategoryDTO;
+using HotelierAPI_WebUI.DTOs.RoomDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Net.Http;
 
@@ -15,9 +18,23 @@ namespace HotelierAPI_WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7135/api/MessageCategory");
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDTO>>(jsonData);
+
+            List<SelectListItem> selectList = (from x in values
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.CategoryName,
+                                                   Value = x.MessageCategoryID.ToString()
+                                               }).ToList();
+            ViewBag.v = selectList;
+
             return View();
+
         }
         [HttpGet]
         public PartialViewResult AddContact()

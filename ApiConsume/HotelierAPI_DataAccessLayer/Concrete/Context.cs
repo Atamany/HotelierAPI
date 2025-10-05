@@ -25,6 +25,7 @@ namespace HotelierAPI_DataAccessLayer.Concrete
         public DbSet<Guest> Guests { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<SendMessage> SendMessages { get; set; }
+        public DbSet<MessageCategory> MessageCategories { get; set; }
 
     }
 }

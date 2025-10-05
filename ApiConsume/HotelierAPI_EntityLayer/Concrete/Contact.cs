@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace HotelierAPI_EntityLayer.Concrete
@@ -14,5 +15,7 @@ namespace HotelierAPI_EntityLayer.Concrete
         public string Subject { get; set; }
         public string Message { get; set; }
         public DateTime Date { get; set; }
+        public int MessageCategoryID { get; set; }
+        public MessageCategory MessageCategory { get; set; }
     }
 }

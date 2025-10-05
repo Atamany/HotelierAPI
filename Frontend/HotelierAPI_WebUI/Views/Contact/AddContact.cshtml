@@ -47,6 +47,18 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
+                                    <select asp-for="MessageCategoryID" id="category" class="form-control">
+                                        <option value="">--Seçiniz--</option>
+                                        @foreach (var item in (List<SelectListItem>)ViewBag.v)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                    <label for="category">Kategori</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
                                     <input type="text" class="form-control" asp-for="Subject" id="subject" placeholder="Konu">
                                     <label for="subject">Konu</label>
                                 </div>

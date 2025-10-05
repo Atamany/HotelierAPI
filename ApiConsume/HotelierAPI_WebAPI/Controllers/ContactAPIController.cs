@@ -1,4 +1,5 @@
 ﻿using HotelierAPI_BusinessLayer.Abstract;
+using HotelierAPI_DTOLayer.DTOs.ContactDTO;
 using HotelierAPI_EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,8 +16,17 @@ namespace HotelierAPI_WebAPI.Controllers
             _contactService = contactService;
         }
         [HttpPost]
-        public IActionResult AddContact(Contact contact)
+        public IActionResult AddContact(CreateContactDTO dto)
         {
+            var contact = new Contact
+            {
+                Name = dto.Name,
+                Mail = dto.Mail,
+                Subject = dto.Subject,
+                Message = dto.Message,
+                Date = dto.Date,
+                MessageCategoryID = dto.MessageCategoryID
+            };
             _contactService.TInsert(contact);
             return Ok();
         }
