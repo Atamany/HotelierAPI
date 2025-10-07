@@ -1,14 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelierAPI_EntityLayer.Concrete
+﻿namespace HotelierAPI_WebUI.DTOs.AppUserDTO
 {
-    public class AppUser:IdentityUser<int>
+    public class ResultAppUserDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string? City { get; set; }
@@ -17,6 +11,5 @@ namespace HotelierAPI_EntityLayer.Concrete
         public string? Country { get; set; }
         public string? Gender { get; set; }
         public int? WorkLocationID { get; set; }
-        public WorkLocation WorkLocation { get; set; }
     }
 }
