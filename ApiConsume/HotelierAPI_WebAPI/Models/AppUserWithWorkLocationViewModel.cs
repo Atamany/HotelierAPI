@@ -1,6 +1,6 @@
-﻿namespace HotelierAPI_WebUI.DTOs.AppUserDTO
+﻿namespace HotelierAPI_WebAPI.Models
 {
-    public class ResultAppUserDTO
+    public class AppUserWithWorkLocationViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
