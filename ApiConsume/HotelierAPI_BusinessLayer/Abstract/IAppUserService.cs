@@ -10,5 +10,6 @@ namespace HotelierAPI_BusinessLayer.Abstract
     public interface IAppUserService:IGenericService<AppUser>
     {
         public List<AppUser> TGetAppUsersWithWorkLocation();
+        int TGetAppUserCount();
     }
 }

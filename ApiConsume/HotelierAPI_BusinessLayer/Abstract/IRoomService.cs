@@ -14,5 +14,6 @@ namespace HotelierAPI_BusinessLayer.Abstract
         void TUpdate(Room t);
         List<Room> TGetList();
         Room TGetById(int id);
+        int TGetRoomCount();
     }
 }

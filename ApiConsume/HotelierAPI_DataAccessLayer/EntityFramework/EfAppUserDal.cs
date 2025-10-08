@@ -16,6 +16,13 @@ namespace HotelierAPI_DataAccessLayer.EntityFramework
         public EfAppUserDal(Context context) : base(context)
         {
         }
+
+        public int GetAppUserCount()
+        {
+            var context = new Context();
+            return context.Users.Count();
+        }
+
         public List<AppUser> GetAppUsersWithWorkLocation()
         {
             using var context = new Context();

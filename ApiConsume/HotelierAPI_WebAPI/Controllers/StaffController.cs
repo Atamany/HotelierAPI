@@ -48,5 +48,11 @@ namespace HotelierAPI_WebAPI.Controllers
             var values = _staffService.TGetById(id);
             return Ok(values);
         }
+        [HttpGet("GetLast4Staff")]
+        public IActionResult GetLast4Staff()
+        {
+            var values = _staffService.TLast4Staff();
+            return Ok(values);
+        }
     }
 }

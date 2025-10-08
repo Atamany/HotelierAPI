@@ -11,5 +11,7 @@ namespace HotelierAPI_DataAccessLayer.Abstract
     {
         void BookingStatusChangeApproved(Booking booking);
         void BookingStatusChangeRejected(Booking booking);
+        int GetBookingCount();
+        List<Booking> Last6Booking();
     }
 }

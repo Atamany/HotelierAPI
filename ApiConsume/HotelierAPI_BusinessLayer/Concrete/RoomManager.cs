@@ -21,6 +21,12 @@ namespace HotelierAPI_BusinessLayer.Concrete
         public void TDelete(Room t) => _roomDal.Delete(t);
         public Room TGetById(int id) => _roomDal.GetById(id);
         public List<Room> TGetList() => _roomDal.GetList();
+
+        public int TGetRoomCount()
+        {
+            return _roomDal.GetRoomCount();
+        }
+
         public void TInsert(Room t) => _roomDal.Insert(t);
         public void TUpdate(Room t) => _roomDal.Update(t);
     }

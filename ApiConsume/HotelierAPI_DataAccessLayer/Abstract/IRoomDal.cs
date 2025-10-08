@@ -9,5 +9,6 @@ namespace HotelierAPI_DataAccessLayer.Abstract
 {
     public interface IRoomDal : IGenericDal<Room>
     {
+        int GetRoomCount();
     }
 }

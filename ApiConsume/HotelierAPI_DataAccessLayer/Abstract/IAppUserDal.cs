@@ -10,5 +10,6 @@ namespace HotelierAPI_DataAccessLayer.Abstract
     public interface IAppUserDal:IGenericDal<AppUser>
     {
         List<AppUser> GetAppUsersWithWorkLocation();
+        int GetAppUserCount();
     }
 }

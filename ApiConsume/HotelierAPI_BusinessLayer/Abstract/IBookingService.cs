@@ -11,5 +11,7 @@ namespace HotelierAPI_BusinessLayer.Abstract
     {
         void TBookingStatusChangeApproved(Booking booking);
         void TBookingStatusChangeRejected(Booking booking);
+        int TGetBookingCount();
+        List<Booking> TLast6Booking();
     }
 }

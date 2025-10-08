@@ -62,5 +62,11 @@ namespace HotelierAPI_WebAPI.Controllers
             _bookingService.TBookingStatusChangeRejected(booking);
             return Ok();
         }
+        [HttpGet("GetLast6Booking")]
+        public IActionResult GetLast6Booking()
+        {
+            var values = _bookingService.TLast6Booking();
+            return Ok(values);
+        }
     }
 }

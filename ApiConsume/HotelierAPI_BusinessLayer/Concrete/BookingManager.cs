@@ -32,6 +32,11 @@ namespace HotelierAPI_BusinessLayer.Concrete
             _bookingDal.Delete(t);
         }
 
+        public int TGetBookingCount()
+        {
+            return _bookingDal.GetBookingCount();
+        }
+
         public Booking TGetById(int id)
         {
             return _bookingDal.GetById(id);
@@ -45,6 +50,11 @@ namespace HotelierAPI_BusinessLayer.Concrete
         public void TInsert(Booking t)
         {
             _bookingDal.Insert(t);
+        }
+
+        public List<Booking> TLast6Booking()
+        {
+            return _bookingDal.Last6Booking();
         }
 
         public void TUpdate(Booking t)

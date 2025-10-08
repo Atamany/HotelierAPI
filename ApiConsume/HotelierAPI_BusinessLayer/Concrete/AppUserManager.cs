@@ -21,6 +21,11 @@ namespace HotelierAPI_BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public int TGetAppUserCount()
+        {
+            return _appUserDal.GetAppUserCount();
+        }
+
         public List<AppUser> TGetAppUsersWithWorkLocation()
         {
             return _appUserDal.GetAppUsersWithWorkLocation();

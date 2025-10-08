@@ -14,5 +14,7 @@ namespace HotelierAPI_BusinessLayer.Abstract
         void TUpdate(Staff t);
         List<Staff> TGetList();
         Staff TGetById(int id);
+        int TGetStaffCount();
+        List<Staff> TLast4Staff();
     }
 }
