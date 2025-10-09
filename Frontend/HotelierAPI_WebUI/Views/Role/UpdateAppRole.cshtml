@@ -1,0 +1,14 @@
+﻿@using HotelierAPI_WebUI.Models.Role
+@model UpdateRoleViewModel
+@{
+    ViewData["Title"] = "UpdateAppRole";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Id" class="form-control" />
+    <label>Rol</label>
+    <input type="text" asp-for="RoleName" class="form-control" /><br />
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
