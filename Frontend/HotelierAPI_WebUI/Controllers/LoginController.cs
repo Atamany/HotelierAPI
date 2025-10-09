@@ -37,5 +37,10 @@ namespace HotelierAPI_WebUI.Controllers
             }
             return View(loginUserDTO);
         }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }
