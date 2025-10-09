@@ -1,0 +1,41 @@
+﻿@using HotelierAPI_WebUI.DTOs.BookingDTO
+@model UpdateBookingDTO
+@{
+    ViewData["Title"] = "UpdateBooking";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="BookingID" class="form-control" />
+    <input type="hidden" asp-for="Status" class="form-control" />
+    <label>Ad - Soyad</label>
+    <input type="text" asp-for="Name" class="form-control" /><br />
+
+    <label>E-Posta</label>
+    <input type="text" asp-for="Mail" class="form-control" /><br />
+
+    <label>Giriş Tarihi</label>
+    <input type="date" asp-for="CheckIn" class="form-control" /><br />
+
+    <label>Çıkış Tarihi</label>
+    <input type="date" asp-for="CheckOut" class="form-control" /><br />
+
+    <label>Yetişkin Sayısı</label>
+    <input type="text" asp-for="AdultCount" class="form-control" /><br />
+
+    <label>Çocuk Sayısı</label>
+    <input type="text" asp-for="ChildCount" class="form-control" /><br />
+
+    <label>Oda Sayısı</label>
+    <input type="text" asp-for="RoomCount" class="form-control" /><br />
+
+    <label>Özel İstekler</label>
+    <textarea class="form-control" placeholder="Özel İstekler" asp-for="SpecialRequest" style="height: 150px"></textarea>
+    <br />
+
+    <label>Açıklama</label>
+    <textarea class="form-control" placeholder="Açıklama" asp-for="Description" style="height: 150px"></textarea>
+    <br />
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
