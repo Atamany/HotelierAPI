@@ -1,410 +1,322 @@
-# 🏨 Hotel Tanıtım ve Yönetim Sistemi
+# 🏨 HotelierAPI - Otel Yönetim Sistemi
 
-![.NET](https://img.shields.io/badge/.NET-8.0-blue) ![C#](https://img.shields.io/badge/C%23-10.0-239120) ![License](https://img.shields.io/badge/license-MIT-green)
+> **Udemy Eğitim Platformu'nda Murat Yücedağ tarafından verilen "Asp.Net Core Api - Rapid Api ve Api Consume" eğitimi kapsamında tamamladığım proje.**
 
-Bu proje, ASP.NET Core 8.0 ve N-Katmanlı Mimari kullanılarak geliştirilmiş kapsamlı bir otel tanıtım ve yönetim sistemidir. Sektörel ihtiyaçlara uygun olarak hem yönetici paneli hem de kullanıcı arayüzü ile tasarlanmıştır.
+Bu proje, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bir otel yönetim sistemidir. N-tier mimari yaklaşımı ile tasarlanmış olan sistem, hem API hem de web arayüzü sunmaktadır.
 
-<img src="https://github.com/user-attachments/assets/d2fae62b-8cdc-425c-95be-a3a2761b1c23" alt="Ana Sayfa" style="width:100%; max-width:800px; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+## 📋 İçindekiler
 
-## 📖 Proje Özeti
-
-Bu kapsamlı otel tanıtım ve yönetim sistemi, ASP.NET Core 8.0 teknolojisi ile geliştirilmiş modern bir web uygulamasıdır. Proje, N-Katmanlı Mimari yaklaşımıyla oluşturulmuş olup, hem yönetici paneli hem de kullanıcı arayüzü içermektedir. Sistem, otel işletmelerinin tanıtım, rezervasyon ve yönetim ihtiyaçlarını karşılamak üzere tasarlanmıştır.
-
-## 📚 İçindekiler
-
-- [Proje Özellikleri](#-proje-özellikleri)
-- [Teknik Gereksinimler](#-teknik-gereksinimler)
-- [Mimari Yapı](#-mimari-yapı)
-- [Proje Yapısı](#-proje-yapısı)
+- [Proje Hakkında](#-proje-hakkında)
+- [Özellikler](#-özellikler)
+- [Teknolojiler](#-teknolojiler)
+- [Proje Mimarisi](#-proje-mimarisi)
 - [Kurulum](#-kurulum)
-- [Veri Doğrulama ve Validasyon](#-veri-doğrulama-ve-validasyon)
-- [API Endpoint'leri](#-api-endpointleri)
-- [Veritabanı Şeması](#-veritabanı-şeması)
+- [Kullanım](#-kullanım)
+- [API Dokümantasyonu](#-api-dokümantasyonu)
+- [Ekran Görüntüleri](#-ekran-görüntüleri)
+- [Katkıda Bulunma](#-katkıda-bulunma)
 - [Lisans](#-lisans)
-- [İletişim](#-iletişim)
 
-## 📋 Proje Özellikleri
+## 🎯 Proje Hakkında
 
-### 🖱️ Yönetici Paneli
-- **CRUD İşlemleri:** Oda, Hizmet, Personel, Rezervasyon, Hakkımızda, Referans ve Abonelik için kapsamlı oluşturma, okuma, güncelleme ve silme işlemleri
-- **Kullanıcı ve Rol Yönetimi:** ASP.NET Core Identity ile kullanıcı kimlik doğrulama ve rol tabanlı erişim kontrolü
-- **Rezervasyon Yönetimi:** Rezervasyon durum takibi ve müşteri bilgileri yönetimi
-- **İstatistiksel Analizler:** Oda doluluk oranları ve diğer istatistiksel veriler
+HotelierAPI, otel işletmelerinin günlük operasyonlarını yönetmek için tasarlanmış kapsamlı bir yönetim sistemidir. Sistem, rezervasyon yönetimi, oda yönetimi, personel takibi, misafir kayıtları ve istatistiksel raporlama gibi temel otel işlemlerini kapsar.
 
-### 👤 Kullanıcı Arayüzü
-- **Modern ve Duyarlı Tasarım:** Bootstrap 5 ile oluşturulmuş mobil uyumlu arayüz
-- **Detaylı Oda Bilgileri:** Oda fotoğrafları, açıklamaları ve fiyat bilgileri
-- **Online Rezervasyon Sistemi:** Kolay rezervasyon oluşturma
-- **Hizmet Tanıtımı:** Otel hizmetlerinin detaylı açıklamaları
-- **İletişim Formu:** Doğrudan iletişim için mesaj gönderme imkanı
-- **E-bülten Abonelik Sistemi:** Güncellemeler için abonelik
-- **Hakkımızda Sayfası:** Kurumsal bilgilerin sunumu
-- **Misafir Yorumları:** Otel deneyimi hakkında müşteri geri bildirimleri
+### 🎓 Eğitim Detayları
+- **Eğitmen:** Murat Yücedağ
+- **Platform:** Udemy
+- **Eğitim Adı:** Asp.Net Core Api - Rapid Api ve Api Consume
+- **Tamamlanma Tarihi:** 09.10.2025
 
-## 🛠️ Teknik Gereksinimler
+## ✨ Özellikler
 
-### Geliştirme Ortamı
-- .NET 8.0 SDK
-- Visual Studio 2022 veya Visual Studio Code
-- Microsoft SQL Server (LocalDB veya tam sürüm)
-- Git sürüm kontrol sistemi
+### 🔐 Kimlik Doğrulama ve Yetkilendirme
+- ASP.NET Core Identity ile güvenli kullanıcı yönetimi
+- Rol tabanlı yetkilendirme sistemi
+- JWT token tabanlı kimlik doğrulama
+- Güvenli oturum yönetimi
 
-### Kullanılan Teknolojiler
+### 🏠 Rezervasyon Yönetimi
+- Rezervasyon oluşturma, güncelleme ve silme
+- Rezervasyon onaylama/reddetme işlemleri
+- Rezervasyon durumu takibi
+- Giriş/çıkış tarihi yönetimi
+- Misafir bilgileri kayıt sistemi
 
-#### Backend Teknolojileri
-- **ASP.NET Core 8.0 Web API:** RESTful API servisleri
-- **Entity Framework Core 8.0:** ORM (Object-Relational Mapping) aracı
-- **AutoMapper:** Nesneler arası eşleme işlemleri
-- **FluentValidation:** Veri doğrulama ve validasyon işlemleri
-- **Swagger/OpenAPI:** API dokümantasyonu ve test aracı
-- **ASP.NET Core Identity:** Kullanıcı yönetimi ve kimlik doğrulama
+### 🛏️ Oda Yönetimi
+- Oda ekleme, düzenleme ve silme
+- Oda özellikleri yönetimi (yatak sayısı, banyo, wifi vb.)
+- Oda fiyatlandırma sistemi
+- Oda görselleri yönetimi
 
-#### Frontend Teknolojileri
-- **HTML5/CSS3:** Yapısal işaretleme ve stil tanımlama
-- **Bootstrap 5:** Responsive tasarım framework'ü
-- **JavaScript:** İstemci tarafı etkileşimler
-- **jQuery:** DOM manipülasyonu
+### 👥 Personel Yönetimi
+- Personel kayıt sistemi
+- Personel bilgileri ve pozisyon takibi
+- Sosyal medya hesapları entegrasyonu
+- Personel fotoğraf yönetimi
 
-#### Veritabanı
-- **Microsoft SQL Server:** İlişkisel veritabanı yönetim sistemi
+### 📊 Dashboard ve İstatistikler
+- Gerçek zamanlı istatistikler
+- Sosyal medya takipçi sayıları (Instagram, X/Twitter)
+- Rezervasyon, oda, personel ve kullanıcı sayıları
+- Son 6 rezervasyon listesi
+- Son 4 personel listesi
 
-## 📊 Mimari Yapı
+### 💬 İletişim Yönetimi
+- Misafir mesajları yönetimi
+- E-posta gönderme sistemi
+- Mesaj kategorileri
+- Newsletter abonelik sistemi
 
-Proje N-Katmanlı Mimari (N-Layered Architecture) yaklaşımı ile geliştirilmiştir:
+### 🎨 Modern Arayüz
+- Responsive tasarım
+- Admin paneli
+- Kullanıcı dostu arayüz
+- Bootstrap tabanlı modern UI
 
-### Katmanlar
+## 🛠️ Teknolojiler
 
-#### 📦 Entity Layer (HotelierAPI_EntityLayer)
-- Veritabanı nesnelerinin tanımlandığı katmandır
-- Her bir entity sınıfı bir veritabanı tablosuna karşılık gelir
+### Backend
+- **.NET 8.0** - Ana framework
+- **ASP.NET Core Web API** - RESTful API geliştirme
+- **ASP.NET Core MVC** - Web uygulaması
+- **Entity Framework Core 8.0** - ORM
+- **SQL Server** - Veritabanı
+- **AutoMapper** - Obje mapping
+- **FluentValidation** - Model doğrulama
+- **Swagger** - API dokümantasyonu
 
-#### 💾 DataAccess Layer (HotelierAPI_DataAccessLayer)
-- Veritabanı ile iletişim kurulan katmandır
-- Repository Pattern uygulanmıştır
-- Entity Framework Core kullanılarak veri işlemleri gerçekleştirilir
+### Frontend
+- **ASP.NET Core MVC** - Web arayüzü
+- **Bootstrap 5** - CSS framework
+- **JavaScript/jQuery** - İstemci tarafı etkileşim
+- **Chart.js** - Grafik ve istatistikler
 
-#### 🧠 Business Layer (HotelierAPI_BusinessLayer)
-- İş kurallarının tanımlandığı katmandır
-- Abstract ve Concrete klasörleri ile soyut ve somut sınıflar ayrıştırılmıştır
-- Dependency Injection ile bağımlılıklar yönetilir
+### Güvenlik ve Kimlik Doğrulama
+- **ASP.NET Core Identity** - Kullanıcı yönetimi
+- **JWT (JSON Web Token)** - Token tabanlı kimlik doğrulama
+- **Role-based Authorization** - Rol tabanlı yetkilendirme
 
-#### 🌐 WebAPI Layer (HotelierAPI_WebAPI)
-- RESTful API servislerinin bulunduğu katmandır
-- Swagger ile dokümantasyon sağlanmıştır
-- CRUD işlemleri için endpoint'ler tanımlanmıştır
-- FluentValidation ile veri doğrulama işlemleri uygulanmıştır
+### Harici API Entegrasyonları
+- **RapidAPI Instagram Scraper** - Instagram takipçi sayıları
+- **RapidAPI X/Twitter Scraper** - X/Twitter takipçi sayıları
 
-#### 🖥️ WebUI Layer (HotelierAPI_WebUI)
-- Kullanıcı arayüzünün (MVC) bulunduğu katmandır
-- Admin paneli ve kullanıcı arayüzü olmak üzere iki temel bölüm içerir
-- API consume işlemleri için IHttpClientFactory kullanılmıştır
-- FluentValidation ile veri doğrulama işlemleri uygulanmıştır
+### Geliştirme Araçları
+- **Visual Studio 2022** - IDE
+- **Git** - Versiyon kontrolü
+- **NuGet** - Paket yönetimi
 
-## 📁 Proje Yapısı
+## 🏗️ Proje Mimarisi
+
+Proje, **N-Tier (Katmanlı) Mimari** yaklaşımı ile tasarlanmıştır:
 
 ```
 HotelierAPI/
-├── ApiConsume/
-│   ├── HotelierAPI_BusinessLayer/
-│   ├── HotelierAPI_DataAccessLayer/
-│   ├── HotelierAPI_DTOLayer/
-│   ├── HotelierAPI_EntityLayer/
-│   └── HotelierAPI_WebAPI/
-├── Frontend/
-│   └── HotelierAPI_WebUI/
-├── HotelierAPI.sln
-└── README.md
+├── ApiConsume/                    # API Katmanı
+│   ├── HotelierAPI_WebAPI/        # Web API Projesi
+│   ├── HotelierAPI_BusinessLayer/ # İş Mantığı Katmanı
+│   ├── HotelierAPI_DataAccessLayer/# Veri Erişim Katmanı
+│   ├── HotelierAPI_EntityLayer/   # Varlık Katmanı
+│   └── HotelierAPI_DTOLayer/      # DTO Katmanı
+└── Frontend/                      # Frontend Katmanı
+    └── HotelierAPI_WebUI/         # Web UI Projesi
 ```
+
+### Katman Açıklamaları
+
+#### 1. **Entity Layer** (`HotelierAPI_EntityLayer`)
+- Veritabanı tablolarını temsil eden entity sınıfları
+- Ana modeller: `Booking`, `Room`, `Staff`, `Guest`, `Contact`, vb.
+
+#### 2. **Data Access Layer** (`HotelierAPI_DataAccessLayer`)
+- Entity Framework Core ile veritabanı işlemleri
+- Repository Pattern implementasyonu
+- Generic Repository kullanımı
+- CRUD operasyonları
+
+#### 3. **Business Layer** (`HotelierAPI_BusinessLayer`)
+- İş mantığı kuralları
+- Service katmanı
+- Dependency Injection ile gevşek bağlılık
+
+#### 4. **DTO Layer** (`HotelierAPI_DTOLayer`)
+- Data Transfer Objects
+- API ve UI arasında veri transferi
+- Mapping işlemleri
+
+#### 5. **Web API** (`HotelierAPI_WebAPI`)
+- RESTful API endpoints
+- Swagger dokümantasyonu
+- CORS konfigürasyonu
+- JWT authentication
+
+#### 6. **Web UI** (`HotelierAPI_WebUI`)
+- MVC pattern ile web arayüzü
+- Admin paneli
+- Responsive tasarım
 
 ## 🚀 Kurulum
 
-### 📋 Önkoşullar
+### Gereksinimler
+- .NET 8.0 SDK
+- SQL Server (LocalDB veya Full)
+- Visual Studio 2022 (önerilen)
+- Git
 
-1. **.NET 8.0 SDK**'nın sisteminizde yüklü olduğundan emin olun
-2. **Microsoft SQL Server** yüklü olmalıdır
-3. **Visual Studio 2022** veya **Visual Studio Code** önerilir
-
-### 📥 Projeyi İndirme
-
+### Adım 1: Projeyi Klonlayın
 ```bash
-# GitHub üzerinden klonlama
 git clone https://github.com/kullaniciadi/HotelierAPI.git
 cd HotelierAPI
 ```
 
-### ⚙️ Veritabanı Yapılandırması
-
-Veritabanı bağlantı dizesi `ApiConsume/HotelierAPI_DataAccessLayer/Concrete/Context.cs` dosyasında tanımlanmıştır:
+### Adım 2: Veritabanı Bağlantısını Yapılandırın
+`ApiConsume/HotelierAPI_DataAccessLayer/Concrete/Context.cs` dosyasında connection string'i güncelleyin:
 
 ```csharp
-protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-{
-    optionsBuilder.UseSqlServer("Server=YIGITATAMANPC;initial Catalog=HotelierAPI;integrated Security=True; TrustServerCertificate=True;");
-}
+optionsBuilder.UseSqlServer("Server=YOUR_SERVER;initial Catalog=HotelierAPI;integrated Security=True; TrustServerCertificate=True;");
 ```
 
-Kendi ortamınıza göre bağlantı dizesini güncelleyin.
-
-### 🗄️ Veritabanı Oluşturma
-
-#### Package Manager Console ile:
-
-```powershell
-# DataAccess katmanında çalıştırın
-Add-Migration InitialCreate
-Update-Database
-```
-
-#### Dotnet CLI ile:
-
+### Adım 3: Migration'ları Çalıştırın
 ```bash
-# Proje kök dizininde çalıştırın
-dotnet ef migrations add InitialCreate --project ApiConsume/HotelierAPI_DataAccessLayer
-dotnet ef database update --project ApiConsume/HotelierAPI_DataAccessLayer
+cd ApiConsume/HotelierAPI_WebAPI
+dotnet ef database update
 ```
 
-### 🧪 Uygulamayı Çalıştırma
+### Adım 4: Projeyi Çalıştırın
 
-#### Visual Studio ile:
-1. Solution'ı açın
-2. Başlangıç projelerini ayarlayın (HotelierAPI_WebAPI ve HotelierAPI_WebUI)
-3. F5 ile debug başlatın
-
-#### Komut Satırı ile:
-
+#### API Projesini Başlatın:
 ```bash
-# API katmanını başlatma
 cd ApiConsume/HotelierAPI_WebAPI
 dotnet run
+```
+API şu adreste çalışacak: `https://localhost:7135`
 
-# Web arayüzünü başlatma (yeni terminal)
+#### Web UI Projesini Başlatın:
+```bash
 cd Frontend/HotelierAPI_WebUI
 dotnet run
 ```
+Web UI şu adreste çalışacak: `https://localhost:5001`
 
-API varsayılan olarak `https://localhost:7000` adresinde,
-Web arayüzü ise `https://localhost:7001` adresinde çalışacaktır.
+### Adım 5: İlk Kullanıcıyı Oluşturun
+Uygulamayı ilk çalıştırdığınızda, admin kullanıcısı oluşturmanız gerekecektir.
 
-## ✅ Veri Doğrulama ve Validasyon
+## 📖 Kullanım
 
-Proje, kullanıcı girdilerinin güvenli ve doğru şekilde işlenmesini sağlamak için **FluentValidation** kütüphanesini kullanmaktadır. Bu yaklaşım, veri doğrulama kurallarını modellerden ayırarak daha temiz ve sürdürülebilir bir kod yapısı sağlar.
+### API Kullanımı
 
-### 📋 Validasyon Kuralları
+#### Swagger Dokümantasyonu
+API'nin Swagger dokümantasyonuna şu adresten erişebilirsiniz:
+`https://localhost:7135/swagger`
 
-#### Guest (Misafir) Varlığı için Validasyon
+#### Örnek API Çağrıları
 
-Misafir varlığı için iki farklı DTO (Data Transfer Object) için ayrı validasyon kuralları tanımlanmıştır:
-
-1. **CreateGuestDTO** - Yeni misafir oluşturma işlemleri için
-2. **UpdateGuestDTO** - Mevcut misafir bilgilerini güncelleme işlemleri için
-
-##### Ortak Validasyon Kuralları:
-- **Ad (Name):**
-  - Boş bırakılamaz
-  - En az 2 karakter uzunluğunda olmalıdır
-  - En fazla 50 karakter uzunluğunda olabilir
-
-- **Soyad (Surname):**
-  - Boş bırakılamaz
-  - En az 2 karakter uzunluğunda olmalıdır
-  - En fazla 50 karakter uzunluğunda olabilir
-
-- **Şehir (City):**
-  - Boş bırakılamaz
-  - En az 3 karakter uzunluğunda olmalıdır
-  - En fazla 50 karakter uzunluğunda olabilir
-
-- **TC Kimlik Numarası (TCKN):**
-  - Boş bırakılamaz
-  - Tam olarak 11 karakter uzunluğunda olmalıdır
-  - Sadece rakamlardan oluşmalıdır
-
-- **Telefon (Telefon):**
-  - 13 karakter uzunluğunda olmalıdır (Uluslararası format: +901234567890)
-
-- **E-posta (Mail):**
-  - Geçerli bir e-posta formatında olmalıdır
-
-### 🏗️ Uygulama Yapısı
-
-Validasyon kuralları, `Frontend/HotelierAPI_WebUI/ValidationRules` klasörü altında tanımlanmıştır:
-
-```
-ValidationRules/
-├── GuestValidationRules/
-│   ├── CreateGuestValidator.cs
-│   └── UpdateGuestValidator.cs
-└── RoomValidationRules/
-    └── (Boş - Gelecekte eklenebilir)
+**Rezervasyon Listesi:**
+```http
+GET https://localhost:7135/api/BookingAPI
 ```
 
-Bu yapı, her varlık için ayrı validasyon klasörleri oluşturularak genişletilebilir bir mimari sunar.
+**Yeni Rezervasyon Ekleme:**
+```http
+POST https://localhost:7135/api/BookingAPI
+Content-Type: application/json
 
-## 🌐 API Endpoint'leri
+{
+  "name": "John Doe",
+  "mail": "john@example.com",
+  "checkIn": "2024-01-15",
+  "checkOut": "2024-01-20",
+  "adultCount": "2",
+  "childCount": "1",
+  "roomCount": "1",
+  "specialRequest": "Sea view room",
+  "status": "Onay Bekliyor!"
+}
+```
 
-Sistem, RESTful prensiplerine uygun olarak tasarlanmış aşağıdaki endpoint'lere sahiptir:
+### Web Arayüzü Kullanımı
 
-### 🏠 Hakkımızda
-- `GET /api/About` - Tüm hakkımızda kayıtlarını getir
-- `GET /api/About/{id}` - Belirli bir hakkımızda kaydını getir
-- `POST /api/About` - Yeni hakkımızda kaydı ekle
-- `PUT /api/About` - Hakkımızda kaydını güncelle
-- `DELETE /api/About/{id}` - Hakkımızda kaydını sil
+1. **Giriş Yapma:** `/Login/Index` sayfasından giriş yapın
+2. **Dashboard:** Ana sayfada istatistikleri görüntüleyin
+3. **Rezervasyon Yönetimi:** Rezervasyonları görüntüleyin, onaylayın/reddedin
+4. **Oda Yönetimi:** Odaları ekleyin, düzenleyin, silin
+5. **Personel Yönetimi:** Personel bilgilerini yönetin
 
-### 📅 Rezervasyonlar
-- `GET /api/BookingAPI` - Tüm rezervasyonları getir
-- `GET /api/BookingAPI/{id}` - Belirli bir rezervasyonu getir
-- `POST /api/BookingAPI` - Yeni rezervasyon ekle
-- `PUT /api/BookingAPI/UpdateBooking` - Rezervasyonu güncelle
-- `DELETE /api/BookingAPI/{id}` - Rezervasyonu sil
+## 📚 API Dokümantasyonu
 
-### 👥 Personel
-- `GET /api/Staff` - Tüm personel bilgilerini getir
-- `GET /api/Staff/{id}` - Belirli bir personeli getir
-- `POST /api/Staff` - Yeni personel ekle
-- `PUT /api/Staff` - Personel bilgisini güncelle
-- `DELETE /api/Staff/{id}` - Personeli sil
+### Ana Endpoint'ler
 
-### 🛏️ Odalar
-- `GET /api/Room` - Tüm odaları getir
-- `GET /api/Room/{id}` - Belirli bir odayı getir
-- `POST /api/Room` - Yeni oda ekle
-- `PUT /api/Room` - Oda bilgisini güncelle
-- `DELETE /api/Room/{id}` - Odayı sil
+| Controller | Endpoint | Method | Açıklama |
+|------------|----------|--------|----------|
+| BookingAPI | `/api/BookingAPI` | GET | Tüm rezervasyonları listele |
+| BookingAPI | `/api/BookingAPI` | POST | Yeni rezervasyon ekle |
+| BookingAPI | `/api/BookingAPI/{id}` | GET | ID'ye göre rezervasyon getir |
+| BookingAPI | `/api/BookingAPI/UpdateBooking` | PUT | Rezervasyon güncelle |
+| BookingAPI | `/api/BookingAPI` | DELETE | Rezervasyon sil |
+| BookingAPI | `/api/BookingAPI/BookingApproved` | PUT | Rezervasyon onayla |
+| BookingAPI | `/api/BookingAPI/BookingRejected` | PUT | Rezervasyon reddet |
+| Room | `/api/Room` | GET | Tüm odaları listele |
+| Room | `/api/Room` | POST | Yeni oda ekle |
+| Staff | `/api/Staff` | GET | Tüm personeli listele |
+| Guest | `/api/Guest` | GET | Tüm misafirleri listele |
 
-### 🛠️ Hizmetler
-- `GET /api/Service` - Tüm hizmetleri getir
-- `GET /api/Service/{id}` - Belirli bir hizmeti getir
-- `POST /api/Service` - Yeni hizmet ekle
-- `PUT /api/Service` - Hizmet bilgisini güncelle
-- `DELETE /api/Service/{id}` - Hizmeti sil
+### Dashboard Widget'ları
 
-### 📝 Yorumlar
-- `GET /api/Testimonial` - Tüm yorumları getir
-- `GET /api/Testimonial/{id}` - Belirli bir yorumu getir
-- `POST /api/Testimonial` - Yeni yorum ekle
-- `PUT /api/Testimonial` - Yorumu güncelle
-- `DELETE /api/Testimonial/{id}` - Yorumu sil
+| Endpoint | Açıklama |
+|----------|----------|
+| `/api/DashboardWidget/GetStaffCount` | Personel sayısı |
+| `/api/DashboardWidget/GetBookingCount` | Rezervasyon sayısı |
+| `/api/DashboardWidget/GetAppUserCount` | Kullanıcı sayısı |
+| `/api/DashboardWidget/GetRoomCount` | Oda sayısı |
 
-### 📧 Abonelikler
-- `GET /api/Subscribe` - Tüm abonelikleri getir
-- `GET /api/Subscribe/{id}` - Belirli bir aboneliği getir
-- `POST /api/Subscribe` - Yeni abonelik ekle
-- `PUT /api/Subscribe` - Aboneliği güncelle
-- `DELETE /api/Subscribe/{id}` - Aboneliği sil
+## 📸 Ekran Görüntüleri
 
-### 📞 İletişim
-- `POST /api/Contact` - Yeni iletişim mesajı ekle
 
-Tüm API endpoint'lerine erişim için Swagger arayüzü `https://localhost:7000/swagger` adresinden erişilebilir.
+## 🔧 Geliştirme Notları
 
-## 🗄️ Veritabanı Şeması
+### Proje Yapısı
+- **Clean Architecture** prensiplerine uygun tasarım
+- **SOLID** prensiplerinin uygulanması
+- **Dependency Injection** ile gevşek bağlılık
+- **Repository Pattern** ile veri erişim soyutlaması
 
-Sistem aşağıdaki tablolardan oluşan ilişkisel veritabanı yapısını kullanmaktadır:
+### Güvenlik Özellikleri
+- ASP.NET Core Identity ile kullanıcı yönetimi
+- JWT token tabanlı kimlik doğrulama
+- Role-based authorization
+- Anti-forgery token koruması
+- HTTPS zorunluluğu
 
-### 🏢 About (Hakkımızda)
-- `AboutId` (int, PK) - Birincil anahtar
-- `Title1` (string) - Başlık 1
-- `Title2` (string) - Başlık 2
-- `Content` (string) - İçerik
-- `RoomCount` (int) - Oda Sayısı
-- `StaffCount` (int) - Personel Sayısı
-- `CustomerCount` (int) - Müşteri Sayısı
+### Performans Optimizasyonları
+- Async/await pattern kullanımı
+- Entity Framework Core ile optimize edilmiş sorgular
+- HttpClient factory pattern
+- Memory cache kullanımı (gelecek sürümlerde)
 
-### 👥 AppUser (Uygulama Kullanıcısı)
-- `Id` (int, PK) - Birincil anahtar
-- `UserName` (string) - Kullanıcı adı
-- `Name` (string) - Ad
-- `Surname` (string) - Soyad
-- `Email` (string) - E-posta
-- `PasswordHash` (byte[]) - Şifre hash değeri
-- `PasswordSalt` (byte[]) - Şifre salt değeri
-- `City` (string) - Şehir (nullable)
+## 🤝 Katkıda Bulunma
 
-### 🔐 AppRole (Uygulama Rolü)
-- `Id` (int, PK) - Birincil anahtar
-- `Name` (string) - Rol adı
-
-### 📅 Booking (Rezervasyon)
-- `BookingID` (int, PK) - Birincil anahtar
-- `Name` (string) - İsim
-- `Mail` (string) - E-posta
-- `CheckIn` (DateTime) - Giriş tarihi
-- `CheckOut` (DateTime) - Çıkış tarihi
-- `AdultCount` (string) - Yetişkin sayısı
-- `ChildCount` (string) - Çocuk sayısı
-- `RoomCount` (string) - Oda sayısı
-- `SpecialRequest` (string) - Özel istekler
-- `Description` (string) - Açıklama
-- `Status` (string) - Durum
-
-### 👥 Guest (Misafir)
-- `GuestID` (int, PK) - Birincil anahtar
-- `Name` (string) - Ad
-- `Surname` (string) - Soyad
-- `City` (string) - Şehir
-- `TCKN` (string) - TC Kimlik Numarası
-- `Telefon` (string) - Telefon (nullable)
-- `Mail` (string) - E-posta (nullable)
-
-### 🛏️ Room (Oda)
-- `RoomId` (int, PK) - Birincil anahtar
-- `RoomNumber` (string) - Oda numarası
-- `RoomCoverImage` (string) - Kapak görseli
-- `Price` (int) - Fiyat
-- `Title` (string) - Başlık
-- `BedCount` (string) - Yatak sayısı
-- `BathCount` (string) - Banyo sayısı
-- `Wifi` (string) - WiFi durumu
-- `Description` (string) - Açıklama
-
-### 🛠️ Service (Hizmet)
-- `ServiceId` (int, PK) - Birincil anahtar
-- `ServiceIcon` (string) - Hizmet ikonu
-- `Title` (string) - Başlık
-- `Description` (string) - Açıklama
-
-### 👥 Staff (Personel)
-- `StaffID` (int, PK) - Birincil anahtar
-- `Name` (string) - Ad
-- `Title` (string) - Unvan
-- `PhotoUrl` (string) - Fotoğraf URL
-- `SocialMedia1` (string) - Sosyal medya 1
-- `SocialMedia2` (string) - Sosyal medya 2
-- `SocialMedia3` (string) - Sosyal medya 3
-
-### 📧 Subscribe (Abonelik)
-- `SubscribeID` (int, PK) - Birincil anahtar
-- `Mail` (string) - E-posta
-
-### 📝 Testimonial (Referans/Yorum)
-- `TestimonialID` (int, PK) - Birincil anahtar
-- `Name` (string) - Ad
-- `Title` (string) - Unvan
-- `Description` (string) - Açıklama
-- `Image` (string) - Görsel URL
-
-### 📧 Contact (İletişim)
-- `ContactID` (int, PK) - Birincil anahtar
-- `Name` (string) - Ad
-- `Mail` (string) - E-posta
-- `Subject` (string) - Konu
-- `Message` (string) - Mesaj
-- `Date` (DateTime) - Tarih
-
-### 🔗 İlişkiler
-
-Veritabanı şemasında aşağıdaki ilişkiler tanımlanmıştır:
-
-- **AppUser** ve **AppRole** arasında çoktan çoğa (many-to-many) ilişki
-- Diğer tablolar birbirinden bağımsızdır ancak aynı otel yönetim sistemini oluştururlar
+1. Bu repository'yi fork edin
+2. Feature branch oluşturun (`git checkout -b feature/AmazingFeature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'Add some AmazingFeature'`)
+4. Branch'inizi push edin (`git push origin feature/AmazingFeature`)
+5. Pull Request oluşturun
 
 ## 📄 Lisans
 
-Bu proje eğitim amaçlı geliştirilmiştir. Ticari kullanım için izin alınmalıdır.
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
 
 ## 📞 İletişim
 
-Bu proje Udemy eğitim platformunda Murat Yücedağ tarafından verilen "Asp.Net Core Api - Rapid Api ve Api Consume" eğitimi kapsamında geliştirilmiştir.
+**Proje Sahibi:** [Yiğit Ataman]
+- **Email:** [yigitataman1@gmail.com]
+- **LinkedIn:** [https://www.linkedin.com/in/yigitataman/]
+- **GitHub:** [http://github.com/Atamany]
 
-Projeyle ilgili sorularınız için [e-posta] veya [GitHub issues] üzerinden iletişime geçebilirsiniz.
+## 🙏 Teşekkürler
+
+- **Murat Yücedağ** - Udemy eğitimi için
+- **Microsoft** - .NET ekosistemi için
+- **Açık kaynak topluluğu** - Kullanılan kütüphaneler için
+
+---
+
+⭐ **Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!**
