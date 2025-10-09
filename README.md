@@ -8,8 +8,8 @@ Bu proje, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bir o
 
 - [Proje Hakkında](#-proje-hakkında)
 - [Özellikler](#-özellikler)
-- [Teknolojiler](#-teknolojiler)
-- [Proje Mimarisi](#-proje-mimarisi)
+- [Teknolojiler](#️-teknolojiler)
+- [Proje Mimarisi](#️-proje-mimarisi)
 - [Kurulum](#-kurulum)
 - [Kullanım](#-kullanım)
 - [API Dokümantasyonu](#-api-dokümantasyonu)
@@ -243,33 +243,180 @@ Content-Type: application/json
 
 ## 📚 API Dokümantasyonu
 
-### Ana Endpoint'ler
+### 📊 Dashboard Widget Endpoint'leri
 
-| Controller | Endpoint | Method | Açıklama |
-|------------|----------|--------|----------|
-| BookingAPI | `/api/BookingAPI` | GET | Tüm rezervasyonları listele |
-| BookingAPI | `/api/BookingAPI` | POST | Yeni rezervasyon ekle |
-| BookingAPI | `/api/BookingAPI/{id}` | GET | ID'ye göre rezervasyon getir |
-| BookingAPI | `/api/BookingAPI/UpdateBooking` | PUT | Rezervasyon güncelle |
-| BookingAPI | `/api/BookingAPI` | DELETE | Rezervasyon sil |
-| BookingAPI | `/api/BookingAPI/BookingApproved` | PUT | Rezervasyon onayla |
-| BookingAPI | `/api/BookingAPI/BookingRejected` | PUT | Rezervasyon reddet |
-| Room | `/api/Room` | GET | Tüm odaları listele |
-| Room | `/api/Room` | POST | Yeni oda ekle |
-| Staff | `/api/Staff` | GET | Tüm personeli listele |
-| Guest | `/api/Guest` | GET | Tüm misafirleri listele |
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/DashboardWidget/GetStaffCount` | Personel sayısını getir |
+| GET | `/api/DashboardWidget/GetBookingCount` | Rezervasyon sayısını getir |
+| GET | `/api/DashboardWidget/GetAppUserCount` | Kullanıcı sayısını getir |
+| GET | `/api/DashboardWidget/GetRoomCount` | Oda sayısını getir |
 
-### Dashboard Widget'ları
+### 🏨 Rezervasyon (Booking) Endpoint'leri
 
-| Endpoint | Açıklama |
-|----------|----------|
-| `/api/DashboardWidget/GetStaffCount` | Personel sayısı |
-| `/api/DashboardWidget/GetBookingCount` | Rezervasyon sayısı |
-| `/api/DashboardWidget/GetAppUserCount` | Kullanıcı sayısı |
-| `/api/DashboardWidget/GetRoomCount` | Oda sayısı |
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/BookingAPI` | Tüm rezervasyonları listele |
+| POST | `/api/BookingAPI` | Yeni rezervasyon ekle |
+| GET | `/api/BookingAPI/{id}` | ID'ye göre rezervasyon getir |
+| PUT | `/api/BookingAPI/UpdateBooking` | Rezervasyon güncelle |
+| DELETE | `/api/BookingAPI?id={id}` | Rezervasyon sil |
+| PUT | `/api/BookingAPI/BookingApproved?id={id}` | Rezervasyon onayla |
+| PUT | `/api/BookingAPI/BookingRejected?id={id}` | Rezervasyon reddet |
+| GET | `/api/BookingAPI/GetLast6Booking` | Son 6 rezervasyonu getir |
+
+### 🛏️ Oda (Room) Endpoint'leri
+
+#### Room Controller
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Room` | Tüm odaları listele |
+| POST | `/api/Room` | Yeni oda ekle |
+| GET | `/api/Room/{id}` | ID'ye göre oda getir |
+| PUT | `/api/Room` | Oda güncelle |
+| DELETE | `/api/Room?id={id}` | Oda sil |
+
+#### Room2 Controller (DTO ile)
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Room2` | Tüm odaları listele |
+| POST | `/api/Room2` | DTO ile yeni oda ekle |
+| PUT | `/api/Room2` | DTO ile oda güncelle |
+
+### 👥 Personel (Staff) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Staff` | Tüm personeli listele |
+| POST | `/api/Staff` | Yeni personel ekle |
+| GET | `/api/Staff/{id}` | ID'ye göre personel getir |
+| PUT | `/api/Staff` | Personel güncelle |
+| DELETE | `/api/Staff?id={id}` | Personel sil |
+| GET | `/api/Staff/GetLast4Staff` | Son 4 personeli getir |
+
+### 👤 Misafir (Guest) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Guest` | Tüm misafirleri listele |
+| POST | `/api/Guest` | Yeni misafir ekle |
+| GET | `/api/Guest/{id}` | ID'ye göre misafir getir |
+| PUT | `/api/Guest` | Misafir güncelle |
+| DELETE | `/api/Guest?id={id}` | Misafir sil |
+
+### 📧 İletişim (Contact) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Contact` | Tüm iletişim mesajlarını listele |
+| POST | `/api/Contact` | Yeni iletişim mesajı ekle |
+| GET | `/api/Contact/{id}` | ID'ye göre mesaj getir |
+| GET | `/api/Contact/GetContactCount` | İletişim mesajı sayısını getir |
+
+### 📤 Gönderilen Mesaj (SendMessage) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/SendMessage` | Tüm gönderilen mesajları listele |
+| POST | `/api/SendMessage` | Yeni mesaj gönder |
+| GET | `/api/SendMessage/{id}` | ID'ye göre mesaj getir |
+| PUT | `/api/SendMessage` | Mesaj güncelle |
+| DELETE | `/api/SendMessage?id={id}` | Mesaj sil |
+| GET | `/api/SendMessage/GetSendMessageCount` | Gönderilen mesaj sayısını getir |
+
+### 📂 Mesaj Kategorisi (MessageCategory) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/MessageCategory` | Tüm mesaj kategorilerini listele |
+| POST | `/api/MessageCategory` | Yeni mesaj kategorisi ekle |
+| GET | `/api/MessageCategory/{id}` | ID'ye göre kategori getir |
+| PUT | `/api/MessageCategory` | Kategori güncelle |
+| DELETE | `/api/MessageCategory?id={id}` | Kategori sil |
+
+### 📰 Newsletter (Subscribe) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Subscribe` | Tüm aboneleri listele |
+| POST | `/api/Subscribe` | Yeni abone ekle |
+| GET | `/api/Subscribe/{id}` | ID'ye göre abone getir |
+| PUT | `/api/Subscribe` | Abone güncelle |
+| DELETE | `/api/Subscribe?id={id}` | Abone sil |
+
+### 🏢 Çalışma Lokasyonu (WorkLocation) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/WorkLocation` | Tüm çalışma lokasyonlarını listele |
+| POST | `/api/WorkLocation` | Yeni lokasyon ekle |
+| GET | `/api/WorkLocation/{id}` | ID'ye göre lokasyon getir |
+| PUT | `/api/WorkLocation` | Lokasyon güncelle |
+| DELETE | `/api/WorkLocation?id={id}` | Lokasyon sil |
+
+### 👤 Kullanıcı (AppUser) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/AppUser` | Çalışma lokasyonu ile birlikte kullanıcıları getir |
+
+### 📝 Hakkında (About) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/About` | Tüm hakkında bilgilerini listele |
+| POST | `/api/About` | Yeni hakkında bilgisi ekle |
+| GET | `/api/About/{id}` | ID'ye göre hakkında bilgisi getir |
+| PUT | `/api/About` | Hakkında bilgisi güncelle |
+| DELETE | `/api/About?id={id}` | Hakkında bilgisi sil |
+
+### 🎯 Hizmetler (Service) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Service` | Tüm hizmetleri listele |
+| POST | `/api/Service` | Yeni hizmet ekle |
+| GET | `/api/Service/{id}` | ID'ye göre hizmet getir |
+| PUT | `/api/Service` | Hizmet güncelle |
+| DELETE | `/api/Service?id={id}` | Hizmet sil |
+
+### 💬 Müşteri Yorumları (Testimonial) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| GET | `/api/Testimonial` | Tüm müşteri yorumlarını listele |
+| POST | `/api/Testimonial` | Yeni müşteri yorumu ekle |
+| GET | `/api/Testimonial/{id}` | ID'ye göre yorum getir |
+| PUT | `/api/Testimonial` | Yorum güncelle |
+| DELETE | `/api/Testimonial?id={id}` | Yorum sil |
+
+### 📁 Dosya İşlemleri (FileProcess) Endpoint'leri
+
+| Method | Endpoint | Açıklama |
+|--------|----------|----------|
+| POST | `/api/FileProcess` | Dosya yükle |
+
+### 📊 API İstatistikleri
+
+- **Toplam Controller Sayısı:** 15
+- **Toplam Endpoint Sayısı:** 70+
+- **HTTP Method'ları:** GET, POST, PUT, DELETE
+- **Ana Özellikler:** CRUD operasyonları, Dashboard istatistikleri, Dosya yükleme
+
+### 🔗 Swagger Dokümantasyonu
+
+Tüm endpoint'leri test etmek ve detaylı dokümantasyonu görmek için: https://localhost:7135/swagger
 
 ## 📸 Ekran Görüntüleri
-
+<img src="https://github.com/user-attachments/assets/f9bb7c48-3945-432a-aafa-3e87f4cda8a2" width="1000px" title="Veri Tabanı" alt="Veri Tabanı">
+<img src="https://github.com/user-attachments/assets/a64dd9c6-5c54-43dc-9790-6dd0b9c64921" width="1000px" title="Ana Sayfa" alt="Ana Sayfa">
+<img src="https://github.com/user-attachments/assets/a4ae0750-e6b8-435e-9412-f85cf7550c6d" width="1000px" title="Rezervasyon" alt="Rezervasyon">
+<img src="https://github.com/user-attachments/assets/a6684256-1324-49bc-bf57-5d0e44aeec4f" width="1000px" title="İletişim" alt="İletişim">
+<img src="https://github.com/user-attachments/assets/a06f56ab-8a1d-4cc0-8359-4d100a65c633" width="1000px" title="Dashboard" alt="Dashboard">
+<img src="https://github.com/user-attachments/assets/558a0bcc-c144-4973-9558-5ffeec65236f" width="1000px" title="Admin Rezervasyonlar" alt="Admin Rezervasyonlar">
+<img src="https://github.com/user-attachments/assets/9f2028b6-335c-4071-b2c7-4dacebedd7c5" width="1000px" title="Admin Mesajlar" alt="Admin Mesajlar">
+<img src="https://github.com/user-attachments/assets/ec9c48dc-80f1-4344-99d1-0c498ea62779" width="1000px" title="Giriş Paneli" alt="Giriş Paneli">
+<img src="https://github.com/user-attachments/assets/fcceb8fc-123e-4697-92b7-f70cf94b173e" width="1000px" title="Kayıt Paneli" alt="Kayıt Paneli">
 
 ## 🔧 Geliştirme Notları
 
@@ -306,10 +453,10 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosy
 
 ## 📞 İletişim
 
-**Proje Sahibi:** [Yiğit Ataman]
-- **Email:** [yigitataman1@gmail.com]
-- **LinkedIn:** [https://www.linkedin.com/in/yigitataman/]
-- **GitHub:** [http://github.com/Atamany]
+**Proje Sahibi:** Yiğit Ataman
+- **Email:** yigitataman1@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/yigitataman/
+- **GitHub:** http://github.com/Atamany
 
 ## 🙏 Teşekkürler
 
